@@ -1,0 +1,106 @@
+@font-face 
+    font-family: "hp-simplified" 
+    src: url("hp-simplified.ttf") 
+ 
+@font-face
+    font-family: "bahnschrift" 
+    src: url("bahnschrift.ttf")
+
+
+// configuracao padrao
+*
+    margin: 0px 
+    padding: 0px 
+    list-style: none 
+    font-weight: 400 
+    user-select: none 
+    word-break: keep-all 
+    scrollbar-width: none 
+    text-decoration: none 
+    box-sizing: border-box 
+    font-family: hp-simplified 
+    scroll-behavior: smooth 
+ 
+
+
+// configuracao padrao
+body
+ 
+    padding: 0px 
+    margin: 0px 
+    overflow-x: hidden 
+
+
+// retirar a linha do scroll
+::scrollbar    
+    width: 0px!important 
+*::scrollbar   
+    width: 0px!important 
+*::-webkit-scrollbar   
+    width: 0px!important 
+*::-moz-scrollbar   
+    width: 0px!important 
+*::-ms-scrollbar   
+    width: 0px!important 
+*::-moz-osx-scrollbar   
+    width: 0px!important 
+*::-o-scrollbar   
+    width: 0px!important 
+
+
+.flex-normal
+    display: flex
+    justify-content: space-between
+
+.flex-center
+    display: flex
+    align-items: center 
+    justify-content: center
+
+.align-center
+    align-items: center 
+.align-baselize
+    align-items: baseline 
+.between 
+    justify-content: space-between
+.around
+    justify-content: space-around
+
+.page
+    width: 100%
+    padding: 2rem
+.row
+    flex-direction: row
+.column
+    flex-direction: column
+.fw
+    font-weight: 900
+
+
+
+
+
+
+
+
+
+
+//initScroll
+@keyframes initScro
+    from
+        opacity: 0.2
+        transform: translateY(-10px)
+    to
+        opacity: 1
+        transform: translateY(0)
+//
+@keyframes bounce
+    from
+        opacity: 0.2
+        transform: translateY(-50vh) rotate(-45deg) scale(2.5)
+    80%
+        ransform: translateY(-80%) rotate(-45deg) scale(1.8)
+        opacity: .2
+    to
+        opacity: 1
+        transform: translate(0, 0) rotate(0deg) scale(1.5)
