@@ -1,5 +1,7 @@
 @import url("icon/icons.css") 
 @import "main"
+@import "components"
+@import "responsive"
 
 
 .initScroll
@@ -44,6 +46,11 @@
     width: 100%
     position: absolute
 
+    h2
+        span
+            color: #999
+            font-size: 2.0rem
+
     ul
         display: block
 
@@ -53,9 +60,17 @@
 
             &:first-child
                 margin: 0px
+
+            a
+                color: #999
+
+                &:hover, &.on
+                    color: #333
+
     menu.lista
         .icons
             a
+                color: #333
                 cursor: pointer
                 margin: 0 1.5rem 0 0
                 display: inline-block
@@ -63,9 +78,15 @@
                 &:last-child
                     margin: 0px
                 &.login-href
+                    color: #333
                     border-bottom: 1px solid #999
+                    
+                    &:hover 
+                        
+                        transition: background .2s, color .5s ease-out
+                i
+                    font-size: 1.1rem
 
-                color: #333
 
                 &.cart
                     position: relative

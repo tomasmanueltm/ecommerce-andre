@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  ul.nav {
+    display: none !important;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: opacity 2s, ease-in, -webkit-transform s;
+    transition: opacity 2s, ease-in, -webkit-transform s;
+    transition: opacity 2s, transform s, ease-in;
+    transition: opacity 2s, transform s, ease-in, -webkit-transform s;
+  }
+  .toggleSvg {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
