@@ -154,40 +154,6 @@ body {
   }
 }
 
-@-webkit-keyframes bounce {
-  from {
-    opacity: 0.2;
-    -webkit-transform: translateY(-50vh) rotate(-45deg) scale(2.5);
-            transform: translateY(-50vh) rotate(-45deg) scale(2.5);
-  }
-  80% {
-    ransform: translateY(-80%) rotate(-45deg) scale(1.8);
-    opacity: .2;
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate(0, 0) rotate(0deg) scale(1.5);
-            transform: translate(0, 0) rotate(0deg) scale(1.5);
-  }
-}
-
-@keyframes bounce {
-  from {
-    opacity: 0.2;
-    -webkit-transform: translateY(-50vh) rotate(-45deg) scale(2.5);
-            transform: translateY(-50vh) rotate(-45deg) scale(2.5);
-  }
-  80% {
-    ransform: translateY(-80%) rotate(-45deg) scale(1.8);
-    opacity: .2;
-  }
-  to {
-    opacity: 1;
-    -webkit-transform: translate(0, 0) rotate(0deg) scale(1.5);
-            transform: translate(0, 0) rotate(0deg) scale(1.5);
-  }
-}
-
 .toggleSvg {
   z-index: 3;
   left: .8rem;
@@ -224,13 +190,14 @@ body {
 
 @media (max-width: 768px) {
   ul.nav {
+    opacity: 0;
     display: none !important;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    -webkit-transition: opacity 2s, ease-in, -webkit-transform s;
-    transition: opacity 2s, ease-in, -webkit-transform s;
-    transition: opacity 2s, transform s, ease-in;
-    transition: opacity 2s, transform s, ease-in, -webkit-transform s;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: opacity 1s, -webkit-transform 0.8s ease-out;
+    transition: opacity 1s, -webkit-transform 0.8s ease-out;
+    transition: opacity 1s, transform 0.8s ease-out;
+    transition: opacity 1s, transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
   }
   .toggleSvg {
     display: -webkit-box !important;
@@ -244,14 +211,23 @@ body {
   height: 100vh;
   inset: 0 0 0 0;
   position: relative;
-  background: #fafafa;
   text-align: center;
-  -webkit-animation: bounce 0.6s   ease-out;
-          animation: bounce 0.6s   ease-out;
-  -webkit-transition: -webkit-transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  transition: -webkit-transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
-  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  -webkit-transition: -webkit-transform 0.6s;
+  transition: -webkit-transform 0.6s;
+  transition: transform 0.6s;
+  transition: transform 0.6s, -webkit-transform 0.6s;
+  background-position-y: 0px;
+  background-position: center;
+  -webkit-animation: bounce .8s ease-out;
+          animation: bounce .8s ease-out;
+  background: url("../src/01.webp") no-repeat;
+  background-size: cover;
+  -webkit-animation-timing-function: cubic-bezier(0.9, 0.5, 0.8, 0.4);
+          animation-timing-function: cubic-bezier(0.9, 0.5, 0.8, 0.4);
+  -webkit-transition: background-position-y 0.1s, background-position 0.4s ease-out, -webkit-clip-path 0.3s;
+  transition: background-position-y 0.1s, background-position 0.4s ease-out, -webkit-clip-path 0.3s;
+  transition: background-position-y 0.1s, clip-path 0.3s, background-position 0.4s ease-out;
+  transition: background-position-y 0.1s, clip-path 0.3s, background-position 0.4s ease-out, -webkit-clip-path 0.3s;
 }
 
 .initScroll h1 {
@@ -260,6 +236,16 @@ body {
 
 .initScroll p strong {
   color: #333;
+}
+
+.initScroll::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  inset: 0 0 0 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .initScroll a {
@@ -300,25 +286,54 @@ body {
   font-size: 2.0rem;
 }
 
-.header ul {
+.header ul.nav {
   display: block;
 }
 
-.header ul li {
+.header ul.nav li {
   margin: 0 0 0 1rem;
   display: inline-block;
 }
 
-.header ul li:first-child {
+.header ul.nav li:first-child {
   margin: 0px;
 }
 
-.header ul li a {
+.header ul.nav li a {
   color: #999;
 }
 
-.header ul li a:hover, .header ul li a.on {
+.header ul.nav li a:hover, .header ul.nav li a.on {
   color: #333;
+}
+
+.header ul.nav.onMobile {
+  left: 0px;
+  width: 50vw;
+  bottom: 0px;
+  opacity: 1;
+  padding: 2rem;
+  height: 100vh;
+  position: fixed;
+  background: #eee;
+  display: block !important;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: opacity 2s ease-in-out, -webkit-transform 3s;
+  transition: opacity 2s ease-in-out, -webkit-transform 3s;
+  transition: transform 3s, opacity 2s ease-in-out;
+  transition: transform 3s, opacity 2s ease-in-out, -webkit-transform 3s;
+  -webkit-animation-timing-function: cubic-bezier(0.95, 0.05, 0.8, 0.04);
+          animation-timing-function: cubic-bezier(0.95, 0.05, 0.8, 0.04);
+}
+
+.header ul.nav.onMobile li {
+  display: block;
+  margin: 0 0 1rem 0;
+}
+
+.header ul.nav.onMobile li:first-child {
+  margin: 1rem 0;
 }
 
 .header menu.lista .icons a {
@@ -357,7 +372,46 @@ body {
 .header menu.lista .icons a.cart i small {
   top: -2px;
   rigth: -2px;
+  font-size: 9pt;
   position: absolute;
   font-style: normal;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    opacity: 0.2;
+    background: #ddd;
+    -webkit-transform: translateY(-50vh) rotateY(45deg) scale(2.5);
+            transform: translateY(-50vh) rotateY(45deg) scale(2.5);
+  }
+  80% {
+    opacity: .2;
+    background: #666;
+    ransform: translateY(80vh) rotate(145deg) scale(1.8);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0) rotate(0deg) scale(1.5);
+            transform: translateX(0) rotate(0deg) scale(1.5);
+  }
+}
+
+@keyframes bounce {
+  from {
+    opacity: 0.2;
+    background: #ddd;
+    -webkit-transform: translateY(-50vh) rotateY(45deg) scale(2.5);
+            transform: translateY(-50vh) rotateY(45deg) scale(2.5);
+  }
+  80% {
+    opacity: .2;
+    background: #666;
+    ransform: translateY(80vh) rotate(145deg) scale(1.8);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0) rotate(0deg) scale(1.5);
+            transform: translateX(0) rotate(0deg) scale(1.5);
+  }
 }
 /*# sourceMappingURL=styler.css.map */

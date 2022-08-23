@@ -9,16 +9,29 @@
     height: 100vh
     inset: 0 0 0 0
     position: relative
-    background: #fafafa
     text-align: center
-    animation: bounce 0.6s   ease-out
-    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1)
+    transition: transform 0.6s 
+    background-position-y: 0px
+    background-position: center
+    animation: bounce .8s ease-out
+    background: url("../src/01.webp") no-repeat
+    background-size: cover
+    animation-timing-function: cubic-bezier(.9,.5,.8,.4)
+    transition: background-position-y 0.1s, clip-path 0.3s, background-position 0.4s ease-out
 
     h1
         font-size: 3rem
     p
         strong
             color: #333
+    &::before
+        content: ""
+        width: 100%
+        height: 100%
+        display: block
+        inset: 0 0 0 0
+        position: absolute
+        background: rgba(0, 0, 0, .2)
             
     a
         width: 45px
@@ -51,7 +64,7 @@
             color: #999
             font-size: 2.0rem
 
-    ul
+    ul.nav
         display: block
 
         li
@@ -66,7 +79,26 @@
 
                 &:hover, &.on
                     color: #333
+    ul.nav.onMobile
+        left: 0px
+        width: 50vw
+        bottom: 0px
+        opacity: 1
+        padding: 2rem
+        height: 100vh
+        position: fixed
+        background: #eee
+        display: block!important
+        transform: translateY(0%)
+        transition: transform 3s, opacity 2s ease-in-out
+        animation-timing-function: cubic-bezier(.95,.05,.8,.04)
 
+        li
+            display: block
+            margin: 0 0 1rem 0
+
+            &:first-child
+                margin: 1rem 0
     menu.lista
         .icons
             a
@@ -95,5 +127,23 @@
                         small
                             top: -2px
                             rigth: -2px
+                            font-size: 9pt
                             position: absolute
                             font-style: normal
+
+//
+
+
+@keyframes bounce
+    from
+        opacity: 0.2
+        background: #ddd
+        transform: translateY(-50vh) rotateY(45deg) scale(2.5)
+    80%
+        opacity: .2
+        background: #666
+        ransform: translateY(80vh) rotate(145deg) scale(1.8)
+    to
+        opacity: 1
+        transform: translateX(0) rotate(0deg) scale(1.5)
+

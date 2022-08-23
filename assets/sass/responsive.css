@@ -1,12 +1,13 @@
 @media (max-width: 768px) {
   ul.nav {
+    opacity: 0;
     display: none !important;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
-    -webkit-transition: opacity 2s, ease-in, -webkit-transform s;
-    transition: opacity 2s, ease-in, -webkit-transform s;
-    transition: opacity 2s, transform s, ease-in;
-    transition: opacity 2s, transform s, ease-in, -webkit-transform s;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: opacity 1s, -webkit-transform 0.8s ease-out;
+    transition: opacity 1s, -webkit-transform 0.8s ease-out;
+    transition: opacity 1s, transform 0.8s ease-out;
+    transition: opacity 1s, transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
   }
   .toggleSvg {
     display: -webkit-box !important;
